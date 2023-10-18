@@ -59,21 +59,46 @@ const xpaths = [
   '//*[@class[contains(.,"firebase-database")]]',
 ];
 
-async function updateView() {
-  await sleep(2000);
+async function updateView(sleepTime, count) {
+  await sleep(sleepTime);
 
   // go through list of sites and xpaths until returnPolicy is not empty.
   for (const xpath of xpaths) {
     let el = getElementByXPath(xpath);
     if (!el) {
-      console.log("No element found for xpath:", xpath);
-      continue;
+      // console.log(
+      //   "No element found for xpath yet:",
+      //   xpath,
+      //   ". Will try again in a while. ",
+      //   count
+      // );
+      return false;
     }
 
-    console.log("Found for xpath:", xpath);
+    //console.log("Found for xpath:", xpath);
     el.style["max-width"] = "100%";
+  }
+
+  console.log("Expand Firestore View Extension: set width to 100%.");
+  return true;
+}
+
+async function callUpdateView() {
+  let done = false;
+  let count = 1;
+  let sleepTime = 500;
+  while (!done && count < 20) {
+    done = await updateView(sleepTime, count);
+    count++;
+    // console.log("done:", done, ", count:", count);
+  }
+
+  if (!done) {
+    console.log(
+      "Expand Firestore View Extension: could not expand view. Probably because could not find element for xpath. Giving up."
+    );
   }
 }
 
-console.log("On site:", document.URL);
-updateView();
+// console.log("On site:", document.URL);
+callUpdateView();
