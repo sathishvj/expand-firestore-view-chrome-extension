@@ -41,8 +41,8 @@ function sleep(ms) {
 }
 
 const xpaths = [
-  '//*[@id="main"]/fire-router-outlet/firestore-base/f7e-data/div',
-  '//*[@id="main"]/fire-router-outlet/firestore-base/f7e-data/div/div[2]',
+  // '//*[@id="main"]/fire-router-outlet/firestore-base/f7e-data/div',
+  // '//*[@id="main"]/fire-router-outlet/firestore-base/f7e-data/div/div[2]',
   // '//*[@class="viewer-container"]',
   // '//*[@class="firebase-database"]',
 
@@ -55,8 +55,8 @@ const xpaths = [
   // '//*[tokenize(@class,"s+")="viewer-container"]',
   // '//*[tokenize(@class,"s+")="firebase-database"]',
 
-  // '//*[@class[contains(.,"viewer-container")]]',
-  // '//*[@class[contains(.,"firebase-database")]]',
+  '//*[@class[contains(.,"viewer-container")]]',
+  '//*[@class[contains(.,"firebase-database")]]',
 ];
 
 async function updateView() {

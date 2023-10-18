@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Expand Firestore View",
   "version": "0.0.1",
-  "description": "Firestore view in firebase console is limited to ~1250px, which is restrictive for larger screens. This extension expands it to 100%.",
+  "description": "Firestore view in firebase console is limited to ~1250px, which is restrictive for larger screens. This extension sets it to 100%.",
   "icons": {
     "16": "images/icon-16.png",
     "32": "images/icon-32.png",
